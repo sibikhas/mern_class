@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Top 5 Netflix Series - Flip Cards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 60px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 42px;
+      color: #e50914;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .page-description {
+      max-width: 700px;
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 50px;
+      color: #ccc;
+      font-style: italic;
+    }
+
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card-wrapper {
+      perspective: 1000px;
+    }
+
+    .movie-card {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .card-wrapper:hover .movie-card {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+      background-color: #1c1c1c;
+    }
+
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-back {
+      background-color: #2e2e2e;
+      padding: 20px;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .movie-title {
+      font-size: 22px;
+      color: #e50914;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .movie-meta {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 5px;
+    }
+
+    .movie-meta strong {
+      color: #f5c518;
+    }
+
+    .summary {
+      font-size: 13px;
+      color: #eee;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .pixel-box {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 15px;
+      height: 15px;
+      background-color: #e50914;
+      border-radius: 3px;
+      box-shadow: 0 0 6px #e50914;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Top Netflix Series</h1>
+  <p class="page-description">
+    Flip the cards to discover thrilling Netflix Originals, including cast, genre, release year, and a quick synopsis.
+  </p>
+
+  <div class="movie-grid">
+
+    <!-- Stranger Things -->
+    <div class="card-wrapper">
+      <div class="movie-card">
+        <div class="card-front">
+          <img src="stranger.jpg" alt="Stranger Things">
+        </div>
+        <div class="card-back">
+          <div>
+            <div class="movie-title">Stranger Things</div>
+            <div class="movie-meta"><strong>Released:</strong> 2016</div>
+            <div class="movie-meta"><strong>Genre:</strong> Sci-Fi, Mystery</div>
+            <div class="movie-meta"><strong>Cast:</strong> Millie Bobby Brown, Finn Wolfhard</div>
+            <div class="movie-meta"><strong>Creators:</strong> The Duffer Brothers</div>
+          </div>
+          <div class="summary">
+            A group of kids uncover government secrets and supernatural forces in their small town of Hawkins.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Witcher -->
+    <div class="card-wrapper">
+      <div class="movie-card">
+        <div class="card-front">
+          <img src="wit.jpg" alt="The Witcher">
+        </div>
+        <div class="card-back">
+          <div>
+            <div class="movie-title">The Witcher</div>
+            <div class="movie-meta"><strong>Released:</strong> 2019</div>
+            <div class="movie-meta"><strong>Genre:</strong> Fantasy, Action</div>
+            <div class="movie-meta"><strong>Cast:</strong> Henry Cavill, Anya Chalotra</div>
+            <div class="movie-meta"><strong>Creator:</strong> Lauren Schmidt Hissrich</div>
+          </div>
+          <div class="summary">
+            Geralt of Rivia, a mutated monster hunter, struggles to find his place in a world of magic and moral ambiguity.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Money Heist -->
+    <div class="card-wrapper">
+      <div class="movie-card">
+        <div class="card-front">
+          <img src="money.jpg" alt="Money Heist">
+        </div>
+        <div class="card-back">
+          <div>
+            <div class="movie-title">Money Heist</div>
+            <div class="movie-meta"><strong>Released:</strong> 2017</div>
+            <div class="movie-meta"><strong>Genre:</strong> Crime, Drama</div>
+            <div class="movie-meta"><strong>Cast:</strong> Álvaro Morte, Úrsula Corberó</div>
+            <div class="movie-meta"><strong>Creator:</strong> Álex Pina</div>
+          </div>
+          <div class="summary">
+            A criminal mastermind recruits a team for the biggest heist in history — to print billions in the Royal Mint of Spain.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="card-wrapper">
+      <div class="movie-card">
+        <div class="card-front">
+          <img src="wednes.jpg" alt="Wednesday">
+        </div>
+        <div class="card-back">
+          <div>
+            <div class="movie-title">Wednesday</div>
+            <div class="movie-meta"><strong>Released:</strong> 2022</div>
+            <div class="movie-meta"><strong>Genre:</strong> Supernatural, Mystery</div>
+            <div class="movie-meta"><strong>Cast:</strong> Jenna Ortega, Catherine Zeta-Jones</div>
+            <div class="movie-meta"><strong>Creators:</strong> Alfred Gough, Miles Millar</div>
+          </div>
+          <div class="summary">
+            Wednesday Addams investigates strange happenings at Nevermore Academy while mastering her psychic powers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark -->
+    <div class="card-wrapper">
+      <div class="movie-card">
+        <div class="card-front">
+          <img src="dark.jpg" alt="Dark">
+        </div>
+        <div class="card-back">
+          <div>
+            <div class="movie-title">Dark</div>
+            <div class="movie-meta"><strong>Released:</strong> 2017</div>
+            <div class="movie-meta"><strong>Genre:</strong> Sci-Fi, Thriller</div>
+            <div class="movie-meta"><strong>Cast:</strong> Louis Hofmann, Karoline Eichhorn</div>
+            <div class="movie-meta"><strong>Creators:</strong> Baran bo Odar, Jantje Friese</div>
+          </div>
+          <div class="summary">
+            A missing child leads to a town's dark past and time travel secrets spanning generations in this German thriller.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="pixel-box"></div>
+
+</body>
+</html>
