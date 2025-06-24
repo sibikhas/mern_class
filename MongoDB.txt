@@ -1,0 +1,348 @@
+use KEC
+switched to db KEC
+db.createCollection("User")
+{ ok: 1 }
+db.User.insertOne( { 
+           Name:  "sibikha",
+           Email: "sibikhasen@gmail.com",
+           Age:   "20",
+           Dept:  "EIE"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('685a26c223b9df94b5e58335')
+}
+db.User.insertMany([
+        Name:   "sibi",
+        Age:    "19",
+        Email:  "sibi@gmail.com",
+        Dept:   "EIE"])
+SyntaxError: Unexpected token, expected "," (2:12)
+
+[0m [90m 1 |[39m db[33m.[39m[33mUser[39m[33m.[39minsertMany([
+[31m[1m>[22m[39m[90m 2 |[39m         [33mName[39m[33m:[39m   [32m"sibi"[39m[33m,[39m
+ [90m   |[39m             [31m[1m^[22m[39m
+ [90m 3 |[39m         [33mAge[39m[33m:[39m    [32m"19"[39m[33m,[39m
+ [90m 4 |[39m         [33mEmail[39m[33m:[39m  [32m"sibi@gmail.com"[39m[33m,[39m
+ [90m 5 |[39m         [33mDept[39m[33m:[39m   [32m"EIE"[39m])[0m
+db.User.insertMany([
+  { Name:   "sibi",
+        Age:    "19",
+        Email:  "sibi@gmail.com",
+        Dept:   "EIE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2c0c23b9df94b5e58336')
+  }
+}
+db.User.insertMany([
+  { Name:   "vanitha",
+        Age:    "43",
+        Email:  "v@gmail.com",
+        Dept:   "EIE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2dc523b9df94b5e58337')
+  }
+}
+db.User.insertMany([
+  { Name:   "senthil",
+        Age:    "53",
+        Email:  "senthil@gmail.com",
+        Dept:   "EIE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2e0623b9df94b5e58338')
+  }
+}
+db.User.insertMany([
+  { Name:   "Arunkumar",
+        Age:    "36",
+        Email:  "arun@gmail.com",
+        Dept:   "catering"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2e4623b9df94b5e58339')
+  }
+}
+db.User.insertMany([
+  { Name:   "saman",
+        Age:    "19",
+        Email:  "saman@gmail.com",
+        Dept:   "EIE"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('685a2eae23b9df94b5e5833a')
+  }
+}
+db.User.find()
+{
+  _id: ObjectId('685a26c223b9df94b5e58335'),
+  Name: 'sibikha',
+  Email: 'sibikhasen@gmail.com',
+  Age: '20',
+  Dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2c0c23b9df94b5e58336'),
+  Name: 'sibi',
+  Age: '19',
+  Email: 'sibi@gmail.com',
+  Dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2dc523b9df94b5e58337'),
+  Name: 'vanitha',
+  Age: '43',
+  Email: 'v@gmail.com',
+  Dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2e0623b9df94b5e58338'),
+  Name: 'senthil',
+  Age: '53',
+  Email: 'senthil@gmail.com',
+  Dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2e4623b9df94b5e58339'),
+  Name: 'Arunkumar',
+  Age: '36',
+  Email: 'arun@gmail.com',
+  Dept: 'catering'
+}
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'saman',
+  Age: '19',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE'
+}
+db.User.findOne()
+{
+  _id: ObjectId('685a26c223b9df94b5e58335'),
+  Name: 'sibikha',
+  Email: 'sibikhasen@gmail.com',
+  Age: '20',
+  Dept: 'EIE'
+}
+db.User.find({Name:"senthil"})
+{
+  _id: ObjectId('685a2e0623b9df94b5e58338'),
+  Name: 'senthil',
+  Age: '53',
+  Email: 'senthil@gmail.com',
+  Dept: 'EIE'
+}
+db.User.find({Age:"36"})
+{
+  _id: ObjectId('685a2e4623b9df94b5e58339'),
+  Name: 'Arunkumar',
+  Age: '36',
+  Email: 'arun@gmail.com',
+  Dept: 'catering'
+}
+db.User.updateOne({Name: "saman"},{$set:{Name: "sam"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.User.find({Name:"saman"})
+db.User.find({Name: "saman"})
+db.User.find({Name: "sam"})
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'sam',
+  Age: '19',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE'
+}
+db.User.updateMany({Age: '19'},{$set:{Age: '30'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+db.User.find({Age: "30"})
+{
+  _id: ObjectId('685a2c0c23b9df94b5e58336'),
+  Name: 'sibi',
+  Age: '30',
+  Email: 'sibi@gmail.com',
+  Dept: 'EIE'
+}
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'sam',
+  Age: '30',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE'
+}
+db.User.updateMany({},{$set:{Phoneno: "XXXXXXXXXX"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 6,
+  modifiedCount: 6,
+  upsertedCount: 0
+}
+db.User.findall()
+TypeError: db.User.findall is not a function
+db.User.find()
+{
+  _id: ObjectId('685a26c223b9df94b5e58335'),
+  Name: 'sibikha',
+  Email: 'sibikhasen@gmail.com',
+  Age: '20',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2c0c23b9df94b5e58336'),
+  Name: 'sibi',
+  Age: '30',
+  Email: 'sibi@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2dc523b9df94b5e58337'),
+  Name: 'vanitha',
+  Age: '43',
+  Email: 'v@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2e0623b9df94b5e58338'),
+  Name: 'senthil',
+  Age: '53',
+  Email: 'senthil@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2e4623b9df94b5e58339'),
+  Name: 'Arunkumar',
+  Age: '36',
+  Email: 'arun@gmail.com',
+  Dept: 'catering',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'sam',
+  Age: '30',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+db.User.find().sort({Name: 1})
+{
+  _id: ObjectId('685a2e4623b9df94b5e58339'),
+  Name: 'Arunkumar',
+  Age: '36',
+  Email: 'arun@gmail.com',
+  Dept: 'catering',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'sam',
+  Age: '30',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2e0623b9df94b5e58338'),
+  Name: 'senthil',
+  Age: '53',
+  Email: 'senthil@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2c0c23b9df94b5e58336'),
+  Name: 'sibi',
+  Age: '30',
+  Email: 'sibi@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a26c223b9df94b5e58335'),
+  Name: 'sibikha',
+  Email: 'sibikhasen@gmail.com',
+  Age: '20',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2dc523b9df94b5e58337'),
+  Name: 'vanitha',
+  Age: '43',
+  Email: 'v@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+db.User.find().sort({Name: -1})
+{
+  _id: ObjectId('685a2dc523b9df94b5e58337'),
+  Name: 'vanitha',
+  Age: '43',
+  Email: 'v@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a26c223b9df94b5e58335'),
+  Name: 'sibikha',
+  Email: 'sibikhasen@gmail.com',
+  Age: '20',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2c0c23b9df94b5e58336'),
+  Name: 'sibi',
+  Age: '30',
+  Email: 'sibi@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2e0623b9df94b5e58338'),
+  Name: 'senthil',
+  Age: '53',
+  Email: 'senthil@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2eae23b9df94b5e5833a'),
+  Name: 'sam',
+  Age: '30',
+  Email: 'saman@gmail.com',
+  Dept: 'EIE',
+  Phoneno: 'XXXXXXXXXX'
+}
+{
+  _id: ObjectId('685a2e4623b9df94b5e58339'),
+  Name: 'Arunkumar',
+  Age: '36',
+  Email: 'arun@gmail.com',
+  Dept: 'catering',
+  Phoneno: 'XXXXXXXXXX'
+}
+KEC
+db.User.find({age: $set})
